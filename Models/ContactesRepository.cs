@@ -82,8 +82,10 @@ namespace WebServiceM9UF3
             contacte c = dataContext.contactes.Where(x => x.contacteId == id).SingleOrDefault();
             if (c != null)
             {
-                dataContext.telefons.RemoveRange(c.telefons);
-                dataContext.emails.RemoveRange(c.emails);
+                if (c.telefons != null)
+                    dataContext.telefons.RemoveRange(c.telefons);
+                if (c.emails != null)
+                    dataContext.emails.RemoveRange(c.emails);
                 dataContext.contactes.Remove(c);
                 dataContext.SaveChanges();
             }
