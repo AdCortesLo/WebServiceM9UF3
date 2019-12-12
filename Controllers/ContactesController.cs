@@ -10,6 +10,15 @@ namespace WebServiceM9UF3.Controllers
 {
     public class ContactesController : ApiController
     {
+        [HttpGet]
+        [Route("api/alumne/{id?}")]
+        public HttpResponseMessage GetAlumne(int id)
+        {
+            var alumne = ContactesRepository.GetAlumne(id);
+            HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.OK, alumne);
+            return response;
+        }
+
         // GET: api/contactes
         [HttpGet]
         [Route("api/contactes")]
