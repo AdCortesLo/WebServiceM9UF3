@@ -7,8 +7,6 @@ namespace WebServiceM9UF3.Models
 {
     public class EmailsRepository
     {
-        public static Contactes2Entities dataContext = new Contactes2Entities();
-
         public static List<email> GetEmailByName(string name)
         {
             return RepositoryGlobal.dataContext.emails.Where(x => x.email1.Contains(name)).ToList();

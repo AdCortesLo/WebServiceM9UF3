@@ -7,8 +7,6 @@ namespace WebServiceM9UF3.Models
 {
     public class TelefonsRepository
     {
-        
-
         public static List<telefon> GetAllTelefons()
         {
             return RepositoryGlobal.dataContext.telefons.ToList();
