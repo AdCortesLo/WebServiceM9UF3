@@ -19,7 +19,7 @@ namespace WebServiceM9UF3
 
         public static List<contacte> GetAllContactes()
         {
-            List<contacte> lc = RepositoryGlobal.dataContext.contactes.ToList();
+            List<contacte> lc = RepositoryGlobal.dataContext.contactes.ToList().OrderBy(x => x.cognoms).ThenBy(x => x.nom).ToList();
             return lc;
         }
 
@@ -32,7 +32,7 @@ namespace WebServiceM9UF3
 
         public static List<contacte> SearchContactesByName(string contacteName)
         {
-            List<contacte> lc = RepositoryGlobal.dataContext.contactes.Where(x => x.nom.Contains(contacteName) || x.cognoms.Contains(contacteName)).ToList();
+            List<contacte> lc = RepositoryGlobal.dataContext.contactes.Where(x => x.nom.Contains(contacteName) || x.cognoms.Contains(contacteName)).OrderBy(x => x.cognoms).ThenBy(x => x.nom).ToList();
             return lc;
         }
 

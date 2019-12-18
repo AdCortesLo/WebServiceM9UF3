@@ -12,9 +12,9 @@ namespace WebServiceM9UF3.Models
             return RepositoryGlobal.dataContext.telefons.ToList();
         }
 
-        public static List<telefon> GetTelefonByNum(string num)
+        public static List<contacte> GetTelefonByNum(string num)
         {
-            return RepositoryGlobal.dataContext.telefons.Where(x => x.telefon1.Contains(num)).ToList();
+            return RepositoryGlobal.dataContext.telefons.Where(x => x.telefon1.Contains(num)).Select(x => x.contacte).ToList().OrderBy(x => x.cognoms).ThenBy(x => x.nom).ToList();
         }
 
         public static telefon UpdateTelefon(int id, telefon t)
