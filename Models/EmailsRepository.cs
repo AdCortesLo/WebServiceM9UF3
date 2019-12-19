@@ -9,7 +9,7 @@ namespace WebServiceM9UF3.Models
     {
         public static List<contacte> GetEmailByName(string name)
         {
-            return RepositoryGlobal.dataContext.emails.Where(x => x.email1.Contains(name)).Select(x => x.contacte).ToList().OrderBy(x => x.cognoms).ThenBy(x => x.nom).ToList();
+            return RepositoryGlobal.dataContext.emails.Where(x => x.email1.Contains(name) || x.tipus.Contains(name)).Select(x => x.contacte).ToList().OrderBy(x => x.cognoms).ThenBy(x => x.nom).ToList();
         }
         public static email UpdateEmail(int id, email t)
         {
